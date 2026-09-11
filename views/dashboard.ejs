@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - TASKMZ</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #1f2937;
+        }
+
+        /* TOPO */
+        .header {
+            background: linear-gradient(135deg, #087f23, #16a34a);
+            color: white;
+            padding: 20px 18px 70px;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .topbar {
+            max-width: 900px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .notification {
+            position: relative;
+            background: rgba(255,255,255,0.18);
+            color: white;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 22px;
+        }
+
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -3px;
+            background: #ef4444;
+            color: white;
+            font-size: 11px;
+            min-width: 19px;
+            height: 19px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .welcome {
+            max-width: 900px;
+            margin: 25px auto 0;
+        }
+
+        .welcome small {
+            opacity: 0.85;
+            font-size: 14px;
+        }
+
+        .welcome h2 {
+            margin: 6px 0 0;
+            font-size: 24px;
+        }
+
+        /* CONTEÚDO */
+        .container {
+            max-width: 900px;
+            margin: -45px auto 0;
+            padding: 0 16px 30px;
+        }
+
+        /* SALDO */
+        .balance-card {
+            background: white;
+            border-radius: 22px;
+            padding: 22px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+        }
+
+        .balance-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .balance-label {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .wallet {
+            font-size: 30px;
+        }
+
+        .money {
+            margin-top: 10px;
+            font-size: 34px;
+            font-weight: bold;
+            color: #087f23;
+        }
+
+        .money span {
+            font-size: 17px;
+        }
+
+        .withdraw-btn {
+            display: block;
+            margin-top: 18px;
+            background: #087f23;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 14px;
+            border-radius: 14px;
+            font-weight: bold;
+        }
+
+        /* ESTATÍSTICAS */
+        .section-title {
+            margin: 25px 0 14px;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .stat {
+            background: white;
+            border-radius: 18px;
+            padding: 18px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .stat-icon {
+            font-size: 28px;
+        }
+
+        .stat-number {
+            font-size: 25px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #087f23;
+        }
+
+        .stat-text {
+            color: #6b7280;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        /* MENU */
+        .menu {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 20px 12px;
+            text-decoration: none;
+            color: #1f2937;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: 0.2s;
+        }
+
+        .card:active {
+            transform: scale(0.96);
+        }
+
+        .card-icon {
+            width: 52px;
+            height: 52px;
+            margin: auto auto 10px;
+            background: #e8f7ed;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* DESTAQUE */
+        .highlight {
+            margin-top: 25px;
+            background: linear-gradient(135deg, #087f23, #16a34a);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .highlight h3 {
+            margin: 0 0 8px;
+        }
+
+        .highlight p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .highlight a {
+            display: inline-block;
+            margin-top: 15px;
+            background: white;
+            color: #087f23;
+            text-decoration: none;
+            padding: 11px 16px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        /* SUPORTE */
+        .support {
+            display: block;
+            margin-top: 20px;
+            background: white;
+            border-radius: 16px;
+            padding: 17px;
+            text-align: center;
+            color: #087f23;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .logout {
+            display: block;
+            margin-top: 12px;
+            padding: 15px;
+            text-align: center;
+            color: #dc2626;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 12px;
+            padding-top: 15px;
+        }
+
+        @media (min-width: 700px) {
+
+            .menu {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+
+        <div class="topbar">
+
+            <div class="brand">
+                🇲🇿 TASKMZ
+            </div>
+
+            <a href="/notifications" class="notification">
+                🔔
+
+                <% if (notificacoesNaoLidas > 0) { %>
+                    <span class="badge">
+                        <%= notificacoesNaoLidas %>
+                    </span>
+                <% } %>
+
+            </a>
+
+        </div>
+
+        <div class="welcome">
+
+            <small>👋 Bem-vindo de volta</small>
+
+            <h2>
+                <%= user.nomeCompleto || user.telefone %>
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+        <!-- SALDO -->
+
+        <div class="balance-card">
+
+            <div class="balance-top">
+
+                <div class="balance-label">
+                    💰 Saldo disponível
+                </div>
+
+                <div class="wallet">
+                    👛
+                </div>
+
+            </div>
+
+            <div class="money">
+                <%= Number(user.saldo || 0).toFixed(2) %>
+                <span>MT</span>
+            </div>
+
+            <a href="/withdraw" class="withdraw-btn">
+                💸 Pedir levantamento
+            </a>
+
+        </div>
+
+
+        <!-- ESTATÍSTICAS -->
+
+        <div class="section-title">
+            📊 Resumo da conta
+        </div>
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <div class="stat-icon">📋</div>
+
+                <div class="stat-number">
+                    <%= tasks.length %>
+                </div>
+
+                <div class="stat-text">
+                    Tarefas disponíveis
+                </div>
+
+            </div>
+
+            <div class="stat">
+
+                <div class="stat-icon">🔔</div>
+
+                <div class="stat-number">
+                    <%= notificacoesNaoLidas %>
+                </div>
+
+                <div class="stat-text">
+                    Novas notificações
+                </div>
+
+            </div>
+
+            <div class="stat">
+
+                <div class="stat-icon">💰</div>
+
+                <div class="stat-number">
+                    <%= Number(user.saldo || 0).toFixed(0) %>
+                </div>
+
+                <div class="stat-text">
+                    Saldo atual em MT
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MENU -->
+
+        <div class="section-title">
+            ⚡ Acesso rápido
+        </div>
+
+        <div class="menu">
+
+            <a href="/tasks" class="card">
+
+                <div class="card-icon">📋</div>
+
+                <div class="card-title">
+                    Tarefas
+                </div>
+
+            </a>
+
+
+            <a href="/my-tasks" class="card">
+
+                <div class="card-icon">✅</div>
+
+                <div class="card-title">
+                    Minhas tarefas
+                </div>
+
+            </a>
+
+
+            <a href="/notifications" class="card">
+
+                <div class="card-icon">🔔</div>
+
+                <div class="card-title">
+                    Notificações
+                </div>
+
+            </a>
+
+
+            <a href="/withdraw" class="card">
+
+                <div class="card-icon">💸</div>
+
+                <div class="card-title">
+                    Levantar dinheiro
+                </div>
+
+            </a>
+
+
+            <a href="/withdraw/history" class="card">
+
+                <div class="card-icon">📜</div>
+
+                <div class="card-title">
+                    Histórico
+                </div>
+
+            </a>
+
+
+            <a href="/payment-method" class="card">
+
+                <div class="card-icon">💳</div>
+
+                <div class="card-title">
+                    Pagamento
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- DESTAQUE -->
+
+        <div class="highlight">
+
+            <h3>🚀 Comece a ganhar!</h3>
+
+            <p>
+                Escolha uma tarefa disponível, complete as instruções
+                e envie a sua prova para análise.
+            </p>
+
+            <a href="/tasks">
+                Ver tarefas →
+            </a>
+
+        </div>
+
+
+        <a
+            href="mailto:mztask42@gmail.com?subject=Suporte%20TASKMZ"
+            class="support"
+        >
+            📩 Contactar Suporte
+        </a>
+
+
+        <a href="/logout" class="logout">
+            🚪 Terminar sessão
+        </a>
+
+
+        <div class="footer">
+            🇲🇿 TASKMZ • Plataforma de Microtarefas
+        </div>
+
+    </div>
+
+</body>
+</html>

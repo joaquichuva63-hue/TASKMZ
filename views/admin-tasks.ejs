@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gerir Tarefas - TASKMZ</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f3f4f3;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 15px;
+        }
+
+        .voltar {
+            display: block;
+            background: #555;
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .task {
+            background: white;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 18px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.10);
+        }
+
+        .task h3 {
+            margin-top: 0;
+            color: #087f23;
+        }
+
+        .info {
+            margin: 8px 0;
+            color: #333;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 20px;
+            background: #e8f5e9;
+            color: #087f23;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .delete-btn {
+            width: 100%;
+            border: none;
+            background: #d62828;
+            color: white;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+
+        .delete-btn:hover {
+            background: #b71c1c;
+        }
+
+        .vazio {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>📋 GERIR TAREFAS</h2>
+    <p>Todas as tarefas da plataforma</p>
+</header>
+
+<div class="container">
+
+    <a href="/admin/dashboard" class="voltar">
+        ← Voltar ao Painel Admin
+    </a>
+
+    <% if (!tasks || tasks.length === 0) { %>
+
+        <div class="vazio">
+            <h3>📭 Nenhuma tarefa encontrada</h3>
+            <p>Ainda não existem tarefas cadastradas.</p>
+        </div>
+
+    <% } else { %>
+
+        <% tasks.slice().reverse().forEach(task => { %>
+
+            <div class="task">
+
+                <h3>
+                    <%= task.titulo %>
+                </h3>
+
+                <p class="info">
+                    📝 <strong>Descrição:</strong>
+                    <%= task.descricao %>
+                </p>
+
+                <p class="info">
+                    💰 <strong>Valor:</strong>
+                    <%= Number(task.valor || 0).toFixed(2) %> MT
+                </p>
+
+                <p class="info">
+                    👥 <strong>Vagas:</strong>
+                    <%= task.vagas || 0 %>
+                </p>
+
+                <p class="info">
+                    👤 <strong>Participantes:</strong>
+                    <%= (task.participantes || []).length %>
+                </p>
+
+                <p class="info">
+                    📅 <strong>Criada em:</strong>
+                    <%= task.criadoEm || "—" %>
+                </p>
+
+                <span class="status">
+                    <%= task.status || "sem status" %>
+                </span>
+
+                <form
+                    method="POST"
+                    action="/admin/tasks/<%= task.id %>/delete"
+                    onsubmit="return confirm('Tem certeza que deseja eliminar esta tarefa?');"
+                >
+
+                    <button type="submit" class="delete-btn">
+                        🗑️ Eliminar tarefa
+                    </button>
+
+                </form>
+
+            </div>
+
+        <% }); %>
+
+    <% } %>
+
+</div>
+
+</body>
+</html>

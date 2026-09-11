@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aprovar Provas - TASKMZ</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f3f4f3;
+}
+
+header {
+    background: #111;
+    color: white;
+    padding: 22px;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 25px auto;
+    padding: 15px;
+}
+
+.proof {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+.proof h2 {
+    margin-top: 0;
+    color: #087f23;
+}
+
+.proof img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.info {
+    line-height: 1.8;
+    margin-top: 15px;
+}
+
+.link {
+    display: block;
+    word-break: break-all;
+    margin-top: 10px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.actions form {
+    flex: 1;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.approve {
+    background: #087f23;
+}
+
+.reject {
+    background: #c62828;
+}
+
+.empty {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.back {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    color: #087f23;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h2>📸 APROVAR PROVAS</h2>
+
+<p>Verifique as provas enviadas pelos utilizadores</p>
+
+</header>
+
+
+<div class="container">
+
+<% if (provas.length === 0) { %>
+
+<div class="empty">
+
+<h2>📭 Nenhuma prova pendente</h2>
+
+<p>As provas enviadas pelos utilizadores aparecerão aqui.</p>
+
+</div>
+
+<% } %>
+
+
+<% provas.forEach(prova => { %>
+
+<div class="proof">
+
+<h2>📋 <%= prova.taskTitulo %></h2>
+
+<div class="info">
+
+<p>
+👤 <strong>Utilizador:</strong>
+<%= prova.telefone %>
+</p>
+
+<p>
+💰 <strong>Valor:</strong>
+<%= prova.taskValor.toFixed(2) %> MT
+</p>
+
+<p>
+📅 <strong>Enviada:</strong>
+<%= prova.enviadaEm %>
+</p>
+
+</div>
+
+
+<h3>📸 Foto da prova</h3>
+
+<img src="<%= prova.fotoProva %>" alt="Prova da tarefa">
+
+
+<h3>🔗 Link enviado</h3>
+
+<a
+href="<%= prova.linkProva %>"
+target="_blank"
+class="link"
+>
+<%= prova.linkProva %>
+</a>
+
+
+<div class="actions">
+
+<form
+action="/admin/proofs/<%= prova.taskId %>/<%= prova.userId %>/approve"
+method="POST"
+>
+
+<button type="submit" class="approve">
+✅ APROVAR E PAGAR
+</button>
+
+</form>
+
+
+<form
+action="/admin/proofs/<%= prova.taskId %>/<%= prova.userId %>/reject"
+method="POST"
+>
+
+<button type="submit" class="reject">
+❌ REJEITAR
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<% }) %>
+
+
+<a href="/admin/dashboard" class="back">
+← Voltar ao Painel Admin
+</a>
+
+</div>
+
+</body>
+</html>

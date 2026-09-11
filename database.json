@@ -1,0 +1,272 @@
+{
+  "users": [
+    {
+      "id": 1788875909128,
+      "telefone": "848435732",
+      "password": "$2b$10$rMzoZMfLCFq0hD32uGink.nTiRbCFIcNlshsBA.EGC7I.hQ5J823e",
+      "saldo": 0,
+      "criadoEm": "08/09/2026, 15:58:29"
+    },
+    {
+      "id": 1788875994155,
+      "telefone": "870737473",
+      "password": "$2b$10$g4LUNaZSO9doGQWM.eFrJucC6yuvKTS3TXqsQgwl5x1n92vMpaXqm",
+      "saldo": 10,
+      "criadoEm": "08/09/2026, 15:59:54",
+      "nomeCompleto": "Joaquim sergio sitol",
+      "metodoPagamento": "e-Mola",
+      "numeroPagamento": "870737473"
+    },
+    {
+      "id": 1788965656394,
+      "telefone": "857571602",
+      "password": "$2b$10$tUyoP2bXIT481vBaYdGh/.DSsIX.pCmUHEGaz1optzmVozVhNrGlm",
+      "saldo": 5,
+      "criadoEm": "09/09/2026, 16:54:16",
+      "nomeCompleto": "Joaquim sergio sitol",
+      "metodoPagamento": "M-Pesa",
+      "numeroPagamento": "845437473"
+    },
+    {
+      "id": 1789040992963,
+      "telefone": "844039175",
+      "password": "$2b$10$xUElY2hLwhhpdZ3qejwa5.44S4AcpQ4KOqkfGFZGX9QN2aAD1nUDW",
+      "saldo": 0,
+      "criadoEm": "10/09/2026, 13:49:52"
+    },
+    {
+      "id": 1789108364672,
+      "telefone": "866396748",
+      "password": "$2b$10$FO2C0xj52tWbhFLXl/ZL.uBa5u0PE.tfZtoPP4JL8OzV2fRZQZ85.",
+      "saldo": 5,
+      "criadoEm": "11/09/2026, 08:32:44"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1788882598312,
+      "titulo": "Seguir pagina no facebook",
+      "descricao": "Vai no crome pesquisa e curta essa pagina desse link.\r\n\r\nhttps://www.facebook.com/profile.php?id=100066295885905",
+      "valor": 5,
+      "vagas": 100,
+      "participantes": [
+        {
+          "userId": 1788875994155,
+          "status": "aprovada",
+          "aceitaEm": "08/09/2026, 19:10:41",
+          "fotoProva": "/uploads/proofs/1788890035120-ChatGPT Image 7 de set. de 2026, 21_50_06.png",
+          "linkProva": "https://www.facebook.com/61593790574229/posts/122105834511459685/?app=fbl",
+          "provaEnviadaEm": "08/09/2026, 19:53:55",
+          "aprovadaEm": "08/09/2026, 20:29:29"
+        },
+        {
+          "userId": 1788965656394,
+          "status": "aprovada",
+          "aceitaEm": "09/09/2026, 16:55:09",
+          "fotoProva": "/uploads/proofs/1788965737224-Screenshot_20260908-103238.png",
+          "linkProva": "https://www.facebook.com/61593790574229/posts/122105834511459685/?app=fbl",
+          "provaEnviadaEm": "09/09/2026, 16:55:37",
+          "aprovadaEm": "09/09/2026, 22:29:12"
+        },
+        {
+          "userId": 1789040992963,
+          "status": "aceita",
+          "aceitaEm": "11/09/2026, 07:17:14"
+        },
+        {
+          "userId": 1789108364672,
+          "status": "aprovada",
+          "aceitaEm": "11/09/2026, 08:32:57",
+          "fotoProva": "/uploads/proofs/1789115043284-ChatGPT Image 10 de set. de 2026, 15_12_23.png",
+          "linkProva": "https://www.facebook.com/61593790574229/posts/122105834511459685/?app=fbl",
+          "provaEnviadaEm": "11/09/2026, 10:24:04",
+          "aprovadaEm": "11/09/2026, 10:24:34"
+        }
+      ],
+      "status": "ativa",
+      "criadoEm": "08/09/2026, 17:49:58"
+    },
+    {
+      "id": 1788949534760,
+      "titulo": "F",
+      "descricao": "Fff",
+      "valor": 20,
+      "vagas": 1,
+      "participantes": [
+        {
+          "userId": 1788875994155,
+          "status": "aprovada",
+          "aceitaEm": "09/09/2026, 12:26:45",
+          "fotoProva": "/uploads/proofs/1788949619738-Screenshot_20260908-155847.png",
+          "linkProva": "https://www.facebook.com/61593790574229/posts/122105834511459685/?app=fbl",
+          "provaEnviadaEm": "09/09/2026, 12:27:00",
+          "aprovadaEm": "09/09/2026, 12:27:39"
+        }
+      ],
+      "status": "ativa",
+      "criadoEm": "09/09/2026, 12:25:34"
+    },
+    {
+      "id": 1788985958186,
+      "titulo": "Aaa",
+      "descricao": "Ddd",
+      "valor": 15,
+      "vagas": 1,
+      "participantes": [
+        {
+          "userId": 1788965656394,
+          "status": "aprovada",
+          "aceitaEm": "09/09/2026, 22:32:52",
+          "fotoProva": "/uploads/proofs/1788986003713-Screenshot_20260908-155847.png",
+          "linkProva": "https://www.facebook.com/61593790574229/posts/122105834511459685/?app=fbl",
+          "provaEnviadaEm": "09/09/2026, 22:33:23",
+          "aprovadaEm": "09/09/2026, 22:33:48"
+        }
+      ],
+      "status": "ativa",
+      "criadoEm": "09/09/2026, 22:32:38"
+    },
+    {
+      "id": 1789029946074,
+      "titulo": "Seguir e curtir",
+      "descricao": "Sdffc",
+      "valor": 5,
+      "vagas": 6,
+      "participantes": [
+        {
+          "userId": 1788875994155,
+          "status": "aprovada",
+          "aceitaEm": "10/09/2026, 10:46:20",
+          "fotoProva": "/uploads/proofs/1789030004001-Screenshot_20260908-153953.png",
+          "linkProva": "https://www.facebook.com/61593790574229/posts/122105834511459685/?app=fbl",
+          "provaEnviadaEm": "10/09/2026, 10:46:44",
+          "aprovadaEm": "10/09/2026, 10:47:08"
+        },
+        {
+          "userId": 1788965656394,
+          "status": "aprovada",
+          "aceitaEm": "10/09/2026, 11:55:27",
+          "fotoProva": "/uploads/proofs/1789034149829-Screenshot_20260908-103238.png",
+          "linkProva": "https://www.facebook.com/61593790574229/posts/122105834511459685/?app=fbl",
+          "provaEnviadaEm": "10/09/2026, 11:55:50",
+          "aprovadaEm": "10/09/2026, 13:27:33"
+        },
+        {
+          "userId": 1789040992963,
+          "status": "aceita",
+          "aceitaEm": "11/09/2026, 08:13:49"
+        },
+        {
+          "userId": 1789108364672,
+          "status": "aceita",
+          "aceitaEm": "11/09/2026, 08:33:13"
+        }
+      ],
+      "status": "ativa",
+      "criadoEm": "10/09/2026, 10:45:46"
+    },
+    {
+      "id": 1789032320051,
+      "titulo": "Seguir pagina no facebook",
+      "descricao": "Fggvv",
+      "valor": 5,
+      "vagas": 6,
+      "participantes": [
+        {
+          "userId": 1788875994155,
+          "status": "aprovada",
+          "aceitaEm": "10/09/2026, 11:25:46",
+          "fotoProva": "/uploads/proofs/1789032381422-Screenshot_20260908-103238.png",
+          "linkProva": "https://www.facebook.com/61593790574229/posts/122105834511459685/?app=fbl",
+          "provaEnviadaEm": "10/09/2026, 11:26:21",
+          "aprovadaEm": "10/09/2026, 11:26:54"
+        },
+        {
+          "userId": 1788965656394,
+          "status": "aceita",
+          "aceitaEm": "10/09/2026, 15:35:38"
+        },
+        {
+          "userId": 1789040992963,
+          "status": "aceita",
+          "aceitaEm": "11/09/2026, 07:18:00"
+        },
+        {
+          "userId": 1789108364672,
+          "status": "aceita",
+          "aceitaEm": "11/09/2026, 08:38:31"
+        }
+      ],
+      "status": "ativa",
+      "criadoEm": "10/09/2026, 11:25:20"
+    }
+  ],
+  "withdrawals": [
+    {
+      "id": 1788949681356,
+      "userId": 1788875994155,
+      "nomeCompleto": "Joaquim sergio sitol",
+      "telefone": "870737473",
+      "metodoPagamento": "e-Mola",
+      "numeroPagamento": "870737473",
+      "valor": 25,
+      "status": "pago",
+      "criadoEm": "09/09/2026, 12:28:01",
+      "pagoEm": "09/09/2026, 19:33:28"
+    },
+    {
+      "id": 1789031444555,
+      "userId": 1788965656394,
+      "nomeCompleto": "Joaquim sergio sitol",
+      "telefone": "857571602",
+      "metodoPagamento": "M-Pesa",
+      "numeroPagamento": "845437473",
+      "valor": 20,
+      "status": "pago",
+      "criadoEm": "10/09/2026, 11:10:44",
+      "pagoEm": "10/09/2026, 11:11:12"
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1789039654390,
+      "userId": 1788965656394,
+      "mensagem": "🎉 A sua tarefa \"Seguir e curtir\" foi aprovada! Foram adicionados 5.00 MT ao seu saldo.",
+      "tipo": "sucesso",
+      "lida": true,
+      "criadaEm": "10/09/2026, 13:27:34"
+    },
+    {
+      "id": 1789115074398,
+      "userId": 1789108364672,
+      "mensagem": "🎉 A sua tarefa \"Seguir pagina no facebook\" foi aprovada! Foram adicionados 5.00 MT ao seu saldo.",
+      "tipo": "sucesso",
+      "lida": true,
+      "criadaEm": "11/09/2026, 10:24:34"
+    },
+    {
+      "id": 1789117633563,
+      "userId": 1788875994155,
+      "mensagem": "Bom dia....",
+      "tipo": "admin",
+      "lida": true,
+      "criadaEm": "11/09/2026, 11:07:13"
+    },
+    {
+      "id": 1789118403448,
+      "userId": 1789040992963,
+      "mensagem": "B",
+      "tipo": "admin",
+      "lida": true,
+      "criadaEm": "11/09/2026, 11:20:03"
+    },
+    {
+      "id": 1789118629744,
+      "userId": 1788965656394,
+      "mensagem": "Bom",
+      "tipo": "admin",
+      "lida": true,
+      "criadaEm": "11/09/2026, 11:23:49"
+    }
+  ]
+}

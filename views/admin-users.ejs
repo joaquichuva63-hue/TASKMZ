@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Utilizadores - TASKMZ</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #087f23;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            padding: 15px;
+        }
+
+        .user {
+            background: white;
+            margin-bottom: 12px;
+            padding: 16px;
+            border-radius: 10px;
+        }
+
+        .phone {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .saldo {
+            margin-top: 8px;
+        }
+
+        .back {
+            display: block;
+            background: #087f23;
+            color: white;
+            text-decoration: none;
+            padding: 14px;
+            text-align: center;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>👥 Utilizadores Registados</h2>
+</header>
+
+<div class="container">
+
+    <% if (usuarios.length === 0) { %>
+
+        <div class="user">
+            Nenhum utilizador registado ainda.
+        </div>
+
+    <% } else { %>
+
+        <% usuarios.forEach(user => { %>
+
+            <div class="user">
+
+<div class="user">
+
+    <div class="phone">
+        📱 Número: <%= user.telefone %>
+    </div>
+
+    <div class="saldo">
+        💰 Saldo: <%= Number(user.saldo || 0).toFixed(2) %> MT
+    </div>
+
+</div>
+
+            </div>
+
+        <% }) %>
+
+    <% } %>
+
+    <a href="/admin/dashboard" class="back">
+        ← Voltar ao Painel Admin
+    </a>
+
+</div>
+
+</body>
+</html>

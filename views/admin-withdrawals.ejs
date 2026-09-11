@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Levantamentos - TASKMZ Admin</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f3f4f3;
+}
+
+header {
+    background: #111;
+    color: white;
+    padding: 22px;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 25px auto;
+    padding: 15px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 18px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+.valor {
+    font-size: 24px;
+    font-weight: bold;
+    color: #087f23;
+}
+
+.info {
+    line-height: 1.8;
+}
+
+.status {
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 15px;
+    background: #fff3cd;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.actions form {
+    flex: 1;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.paid {
+    background: #087f23;
+}
+
+.reject {
+    background: #c62828;
+}
+
+.empty {
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.back {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    color: #087f23;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h2>💸 PEDIDOS DE LEVANTAMENTO</h2>
+
+<p>Controle os pagamentos dos utilizadores</p>
+
+</header>
+
+
+<div class="container">
+
+<% if (pedidos.length === 0) { %>
+
+<div class="empty">
+
+<h2>📭 Nenhum pedido</h2>
+
+<p>Os pedidos de levantamento aparecerão aqui.</p>
+
+</div>
+
+<% } %>
+
+
+<% pedidos.slice().reverse().forEach(pedido => { %>
+
+<div class="card">
+
+<h3>👤 <%= pedido.nomeCompleto %></h3>
+
+<div class="info">
+
+<p>
+📱 <strong>Conta:</strong>
+<%= pedido.metodoPagamento %> -
+<%= pedido.numeroPagamento %>
+</p>
+
+<p>
+📞 <strong>Telefone:</strong>
+<%= pedido.telefone %>
+</p>
+
+<p>
+📅 <strong>Pedido:</strong>
+<%= pedido.criadoEm %>
+</p>
+
+</div>
+
+<p class="valor">
+
+💰 <%= Number(pedido.valor).toFixed(2) %> MT
+
+</p>
+
+
+<div class="status">
+
+<% if (pedido.status === "pendente") { %>
+
+⏳ AGUARDANDO PAGAMENTO
+
+<% } else if (pedido.status === "pago") { %>
+
+✅ PAGAMENTO REALIZADO
+
+<% } else if (pedido.status === "rejeitado") { %>
+
+❌ REJEITADO — VALOR DEVOLVIDO
+
+<% } %>
+
+</div>
+
+
+<% if (pedido.status === "pendente") { %>
+
+<div class="actions">
+
+<form
+action="/admin/withdrawals/<%= pedido.id %>/paid"
+method="POST"
+>
+
+<button type="submit" class="paid">
+
+✅ MARCAR COMO PAGO
+
+</button>
+
+</form>
+
+
+<form
+action="/admin/withdrawals/<%= pedido.id %>/reject"
+method="POST"
+>
+
+<button type="submit" class="reject">
+
+❌ REJEITAR
+
+</button>
+
+</form>
+
+</div>
+
+<% } %>
+
+</div>
+
+<% }) %>
+
+
+<a href="/admin/dashboard" class="back">
+
+← Voltar ao Painel Admin
+
+</a>
+
+</div>
+
+</body>
+</html>

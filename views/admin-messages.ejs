@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagens - TASKMZ</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            color: #222;
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            font-weight: bold;
+        }
+
+        select,
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px;
+            margin-top: 8px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 18px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #1877f2;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .sucesso {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .erro {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .voltar {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            color: #1877f2;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>📢 Mensagens</h1>
+
+        <% if (typeof enviado !== "undefined" && enviado) { %>
+            <div class="sucesso">
+                ✅ Mensagem enviada com sucesso!
+            </div>
+        <% } %>
+
+        <% if (typeof erro !== "undefined" && erro) { %>
+            <div class="erro">
+                ❌ <%= erro %>
+            </div>
+        <% } %>
+
+        <form method="POST" action="/admin/messages">
+
+            <label>👤 Destinatário</label>
+
+            <select name="destinatario" required>
+
+                <option value="todos">
+                    👥 Todos os utilizadores
+                </option>
+
+                <% (usuarios || []).forEach(user => { %>
+
+                    <option value="<%= user.id %>">
+                        📱 <%= user.telefone %>
+                    </option>
+
+                <% }) %>
+
+            </select>
+
+            <label>💬 Mensagem</label>
+
+            <textarea
+                name="mensagem"
+                placeholder="Escreva a mensagem..."
+                required></textarea>
+
+            <button type="submit">
+                📢 Enviar mensagem
+            </button>
+
+        </form>
+
+        <a href="/admin/dashboard" class="voltar">
+            ← Voltar ao painel
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

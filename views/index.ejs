@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TASKMZ - Microtarefas em Moçambique</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        header {
+            background: #087f23;
+            color: white;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 18px;
+            font-weight: bold;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #087f23, #0ca63a);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            margin: 8px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn-register {
+            background: #ffd400;
+            color: #111;
+        }
+
+        .btn-login {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .how {
+            padding: 55px 8%;
+            text-align: center;
+        }
+
+        .how h2 {
+            font-size: 30px;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .step {
+            background: white;
+            width: 220px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+
+        .step .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+        }
+
+        .contact {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .contact h2 {
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #000;
+            color: #aaa;
+            text-align: center;
+            padding: 18px;
+        }
+
+        @media(max-width: 600px) {
+
+            header {
+                padding: 15px;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🇲🇿 TASKMZ</div>
+
+    <nav>
+        <a href="/">Início</a>
+        <a href="/login">Login</a>
+        <a href="/register">Registo</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <h1>Faça Tarefas. Ganhe Dinheiro. 🇲🇿</h1>
+
+    <p>
+        TASKMZ é uma plataforma de microtarefas onde podes
+        realizar tarefas disponíveis e receber pagamentos
+        depois da aprovação.
+    </p>
+
+    <div class="buttons">
+        <a href="/register" class="btn btn-register">Criar Conta</a>
+        <a href="/login" class="btn btn-login">Entrar</a>
+    </div>
+
+</section>
+
+<section class="how">
+
+    <h2>Como funciona?</h2>
+
+    <div class="steps">
+
+        <div class="step">
+            <div class="icon">👤</div>
+            <h3>1. Regista-te</h3>
+            <p>Cria gratuitamente a tua conta na TASKMZ.</p>
+        </div>
+
+        <div class="step">
+            <div class="icon">📋</div>
+            <h3>2. Escolhe uma tarefa</h3>
+            <p>Consulta as tarefas disponíveis.</p>
+        </div>
+
+        <div class="step">
+            <div class="icon">📸</div>
+            <h3>3. Envia a prova</h3>
+            <p>Depois de concluir, envia a prova solicitada.</p>
+        </div>
+
+        <div class="step">
+            <div class="icon">💰</div>
+            <h3>4. Recebe o valor</h3>
+            <p>Após aprovação, o valor entra no teu saldo.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="contact">
+
+    <h2>Queres lançar uma tarefa?</h2>
+
+    <p>
+        Para publicar uma tarefa, entra primeiro em contacto
+        com a administração da TASKMZ.
+    </p>
+
+</section>
+
+<footer>
+    © 2026 TASKMZ 🇲🇿 - Plataforma de Microtarefas
+</footer>
+
+</body>
+</html>

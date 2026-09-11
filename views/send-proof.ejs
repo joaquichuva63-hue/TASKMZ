@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Enviar Prova - TASKMZ</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+}
+
+
+/* MENU LATERAL */
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #061b35, #082747);
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 22px 16px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 35px;
+    padding: 0 10px;
+}
+
+.logo span {
+    color: #ffc928;
+}
+
+.menu-title {
+    color: #9fb0c3;
+    font-size: 12px;
+    margin: 15px 10px 10px;
+}
+
+.menu a {
+    display: block;
+    color: #dce7f3;
+    text-decoration: none;
+    padding: 14px 15px;
+    margin-bottom: 6px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.menu a:hover {
+    background: #1264c7;
+    color: white;
+}
+
+
+/* ÁREA PRINCIPAL */
+
+.main {
+    margin-left: 250px;
+    min-height: 100vh;
+}
+
+.topbar {
+    height: 72px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.top-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.back-top {
+    text-decoration: none;
+    color: #1264c7;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/* CONTEÚDO */
+
+.content {
+    max-width: 850px;
+    padding: 30px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.subtitle {
+    color: #738096;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 25px;
+}
+
+
+/* INFORMAÇÃO DA TAREFA */
+
+.task-info {
+    background: linear-gradient(135deg, #087f23, #16a34a);
+    color: white;
+    padding: 24px;
+    border-radius: 20px;
+    margin-bottom: 22px;
+    box-shadow: 0 10px 30px rgba(8,127,35,0.18);
+}
+
+.task-label {
+    font-size: 12px;
+    opacity: 0.85;
+    margin-bottom: 8px;
+}
+
+.task-title {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.task-description {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.95;
+    white-space: pre-line;
+}
+
+
+/* FORMULÁRIO */
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card-subtitle {
+    color: #738096;
+    font-size: 14px;
+    margin-top: 7px;
+    margin-bottom: 22px;
+}
+
+
+/* ERRO */
+
+.error {
+    background: #fff0f0;
+    color: #c62828;
+    padding: 14px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+
+/* CAMPOS */
+
+label {
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    color: #344054;
+}
+
+input[type="url"] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #dfe5ec;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+}
+
+input[type="url"]:focus {
+    border-color: #087f23;
+    box-shadow: 0 0 0 3px rgba(8,127,35,0.10);
+}
+
+
+/* UPLOAD */
+
+.file-box {
+    border: 2px dashed #b9c4d1;
+    border-radius: 16px;
+    padding: 28px 18px;
+    text-align: center;
+    background: #f9fbfd;
+}
+
+.file-icon {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.file-text {
+    font-weight: bold;
+    color: #344054;
+}
+
+.file-help {
+    margin-top: 7px;
+    color: #8a94a6;
+    font-size: 13px;
+}
+
+input[type="file"] {
+    width: 100%;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+
+/* BOTÃO */
+
+button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 28px;
+    background: #087f23;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #066b1d;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+
+/* AVISO */
+
+.notice {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 14px;
+    background: #fff8e1;
+    color: #795b00;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        width: 70px;
+        padding: 18px 8px;
+    }
+
+    .logo {
+        font-size: 0;
+        text-align: center;
+        padding: 0;
+    }
+
+    .logo::before {
+        content: "✓";
+        font-size: 30px;
+        color: #ffc928;
+    }
+
+    .menu-title {
+        display: none;
+    }
+
+    .menu a {
+        font-size: 0;
+        text-align: center;
+        padding: 15px 5px;
+    }
+
+    .main {
+        margin-left: 70px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .topbar {
+        padding: 0 18px;
+    }
+
+    .content {
+        padding: 20px 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- MENU -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        ✓ TASK<span>MZ</span>
+    </div>
+
+    <div class="menu-title">
+        MENU PRINCIPAL
+    </div>
+
+    <nav class="menu">
+
+        <a href="/dashboard">🏠 Dashboard</a>
+
+        <a href="/tasks">📋 Tarefas Disponíveis</a>
+
+        <a href="/my-tasks">✅ Minhas Tarefas</a>
+
+        <a href="/withdraw">💰 Meu Saldo</a>
+
+        <a href="/withdraw/history">💸 Levantamentos</a>
+
+        <a href="/notifications">🔔 Notificações</a>
+
+        <a href="/payment-method">👤 Perfil</a>
+
+        <a href="/logout">🚪 Sair</a>
+
+    </nav>
+
+</aside>
+
+
+<!-- PRINCIPAL -->
+
+<main class="main">
+
+
+    <div class="topbar">
+
+        <div class="top-title">
+            📤 Enviar Prova
+        </div>
+
+        <a href="/my-tasks" class="back-top">
+            ← Minhas Tarefas
+        </a>
+
+    </div>
+
+
+    <div class="content">
+
+        <h1>Enviar prova da tarefa</h1>
+
+        <div class="subtitle">
+            Complete os campos abaixo e envie a prova para análise.
+        </div>
+
+
+        <!-- TAREFA -->
+
+        <div class="task-info">
+
+            <div class="task-label">
+                📋 TAREFA QUE ESTÁ A REALIZAR
+            </div>
+
+            <div class="task-title">
+                <%= task.titulo %>
+            </div>
+
+            <div class="task-description">
+                <%= task.descricao %>
+            </div>
+
+        </div>
+
+
+        <!-- FORMULÁRIO -->
+
+        <div class="card">
+
+            <div class="card-title">
+                📸 Envie a sua prova
+            </div>
+
+            <div class="card-subtitle">
+                A prova será analisada antes da aprovação da tarefa.
+            </div>
+
+
+            <% if (error) { %>
+
+                <div class="error">
+                    ⚠️ <%= error %>
+                </div>
+
+            <% } %>
+
+
+            <form
+                action="/tasks/<%= task.id %>/proof"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+
+                <label>📸 Foto ou Screenshot da prova</label>
+
+                <div class="file-box">
+
+                    <div class="file-icon">
+                        📷
+                    </div>
+
+                    <div class="file-text">
+                        Escolha uma imagem da sua prova
+                    </div>
+
+                    <div class="file-help">
+                        Envie uma imagem clara para facilitar a análise.
+                    </div>
+
+                    <input
+                        type="file"
+                        name="foto"
+                        accept="image/*"
+                        required
+                    >
+
+                </div>
+
+
+                <label>🔗 Link da publicação ou partilha</label>
+
+                <input
+                    type="url"
+                    name="link"
+                    placeholder="Cole aqui o link solicitado"
+                    required
+                >
+
+
+                <button type="submit">
+                    📤 ENVIAR PROVA PARA ANÁLISE
+                </button>
+
+
+            </form>
+
+
+            <div class="notice">
+
+                <strong>⚠️ Importante:</strong>
+
+                Envie uma prova verdadeira e relacionada com a tarefa.
+                Provas incorretas ou falsas podem resultar na rejeição da tarefa.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>

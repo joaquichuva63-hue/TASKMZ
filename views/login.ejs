@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Entrar - TASKMZ</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #061b35, #0b3157);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.page {
+    width: 100%;
+    max-width: 1050px;
+    min-height: 600px;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+}
+
+
+/* LADO ESQUERDO */
+
+.welcome {
+    background: linear-gradient(135deg, #087f23, #16a34a);
+    color: white;
+    padding: 55px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.logo span {
+    color: #ffd43b;
+}
+
+.welcome h1 {
+    font-size: 38px;
+    margin: 0 0 15px;
+    line-height: 1.2;
+}
+
+.welcome p {
+    font-size: 17px;
+    line-height: 1.7;
+    opacity: 0.95;
+    max-width: 420px;
+}
+
+.features {
+    margin-top: 25px;
+}
+
+.feature {
+    margin: 15px 0;
+    font-size: 15px;
+}
+
+
+/* LADO DO LOGIN */
+
+.login-area {
+    padding: 55px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-area h2 {
+    font-size: 30px;
+    margin: 0;
+    color: #172033;
+}
+
+.subtitle {
+    color: #738096;
+    margin: 10px 0 25px;
+    font-size: 15px;
+}
+
+
+/* ERRO */
+
+.error {
+    background: #fff0f0;
+    color: #c62828;
+    padding: 14px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+
+/* FORMULÁRIO */
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    color: #344054;
+}
+
+.input-box {
+    position: relative;
+}
+
+.input-box span {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    font-size: 18px;
+}
+
+input {
+    width: 100%;
+    padding: 15px 15px 15px 48px;
+    border: 1px solid #dfe5ec;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: #087f23;
+    box-shadow: 0 0 0 3px rgba(8,127,35,0.10);
+}
+
+
+/* BOTÃO */
+
+button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 28px;
+    background: #087f23;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #066b1d;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+
+/* REGISTO */
+
+.register {
+    text-align: center;
+    margin-top: 25px;
+    color: #667085;
+    font-size: 14px;
+}
+
+.register a {
+    color: #087f23;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 12px;
+    color: #98a2b3;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    body {
+        padding: 0;
+        display: block;
+        background: #f4f7fb;
+    }
+
+    .page {
+        min-height: 100vh;
+        border-radius: 0;
+        display: block;
+        box-shadow: none;
+    }
+
+    .welcome {
+        padding: 40px 25px;
+        min-height: auto;
+    }
+
+    .logo {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .welcome h1 {
+        font-size: 28px;
+    }
+
+    .welcome p {
+        font-size: 15px;
+    }
+
+    .features {
+        display: none;
+    }
+
+    .login-area {
+        padding: 35px 25px 45px;
+    }
+
+    .login-area h2 {
+        font-size: 27px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+
+    <!-- LADO DE APRESENTAÇÃO -->
+
+    <section class="welcome">
+
+        <div class="logo">
+            🇲🇿 TASK<span>MZ</span>
+        </div>
+
+        <h1>
+            Ganhe dinheiro completando tarefas.
+        </h1>
+
+        <p>
+            Entre na TASKMZ e encontre oportunidades para realizar
+            microtarefas e aumentar os seus ganhos.
+        </p>
+
+        <div class="features">
+
+            <div class="feature">
+                ✅ Tarefas simples e disponíveis
+            </div>
+
+            <div class="feature">
+                💰 Ganhe saldo pelas tarefas aprovadas
+            </div>
+
+            <div class="feature">
+                📱 Peça levantamentos pelo seu método de pagamento
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LOGIN -->
+
+    <section class="login-area">
+
+        <h2>Bem-vindo! 👋</h2>
+
+        <div class="subtitle">
+            Entre na sua conta para continuar.
+        </div>
+
+
+        <% if (error) { %>
+
+            <div class="error">
+                ⚠️ <%= error %>
+            </div>
+
+        <% } %>
+
+
+        <form action="/login" method="POST">
+
+
+            <label>📱 Número de telefone</label>
+
+            <div class="input-box">
+
+                <span>📱</span>
+
+                <input
+                    type="tel"
+                    name="telefone"
+                    placeholder="Digite o seu número"
+                    required
+                >
+
+            </div>
+
+
+            <label>🔐 Palavra-passe</label>
+
+            <div class="input-box">
+
+                <span>🔒</span>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Digite a sua palavra-passe"
+                    required
+                >
+
+            </div>
+
+
+            <button type="submit">
+                🔐 ENTRAR NA MINHA CONTA
+            </button>
+
+
+        </form>
+
+
+        <div class="register">
+
+            Ainda não tem uma conta?
+
+            <a href="/register">
+                Criar conta grátis
+            </a>
+
+        </div>
+
+
+        <div class="footer">
+            🇲🇿 TASKMZ • Plataforma de Microtarefas
+        </div>
+
+    </section>
+
+</div>
+
+</body>
+</html>

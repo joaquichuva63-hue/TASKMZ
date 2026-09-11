@@ -1,0 +1,20 @@
+{
+"name": "taskmz",
+"version": "1.0.0",
+"description": "Plataforma de Microtarefas TASKMZ",
+"main": "server.js",
+"scripts": {
+"start": "node server.js"
+},
+"keywords": [],
+"author": "Joaquim Sitol",
+"license": "ISC",
+"type": "commonjs",
+"dependencies": {
+"bcrypt": "^6.0.0",
+"ejs": "^6.0.1",
+"express": "^5.2.1",
+"express-session": "^1.19.0",
+"multer": "^2.3.0"
+}
+}

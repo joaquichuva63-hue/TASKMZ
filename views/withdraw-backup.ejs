@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pedir Levantamento - TASKMZ</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f3f4f3;
+}
+
+header {
+    background: #087f23;
+    color: white;
+    padding: 22px;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: 25px auto;
+    padding: 15px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.saldo {
+    background: #e7f6ea;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.saldo h1 {
+    color: #087f23;
+    margin: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 17px;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 25px;
+    background: #087f23;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.error {
+    background: #ffe0e0;
+    color: #b00000;
+    padding: 13px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.info {
+    margin-top: 20px;
+    background: #fff3cd;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.back {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #087f23;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h2>💸 PEDIR LEVANTAMENTO</h2>
+<p>Receba o seu dinheiro por M-Pesa ou e-Mola</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<div class="saldo">
+
+<p>💰 Saldo disponível</p>
+
+<h1>
+<%= Number(user.saldo || 0).toFixed(2) %> MT
+</h1>
+
+</div>
+
+<% if (error) { %>
+
+<div class="error">
+<%= error %>
+</div>
+
+<% } %>
+
+<form action="/withdraw" method="POST">
+
+<label>💰 Valor que deseja levantar</label>
+
+<input
+type="number"
+name="valor"
+min="20"
+step="0.01"
+placeholder="Ex: 50"
+required
+>
+
+<button type="submit">
+💸 PEDIR LEVANTAMENTO
+</button>
+
+</form>
+
+<div class="info">
+
+<strong>ℹ️ Importante</strong>
+
+<p>O valor solicitado será retirado imediatamente do seu saldo disponível e ficará como pedido pendente até ser analisado pelo administrador.</p>
+
+</div>
+
+<a href="/withdraw/history" class="back">
+📋 Ver histórico de levantamentos
+</a>
+
+<a href="/dashboard" class="back">
+← Voltar ao painel
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

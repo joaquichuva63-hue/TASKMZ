@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Painel Admin - TASKMZ</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f3f4f3;
+}
+
+header {
+    background: #111;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+.container {
+    max-width: 700px;
+    margin: 25px auto;
+    padding: 20px;
+}
+
+.stats {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    flex: 1;
+    min-width: 200px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+.stat h2 {
+    font-size: 35px;
+    color: #087f23;
+}
+
+.menu a {
+    display: block;
+    background: white;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #222;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.logout {
+    display: block;
+    margin-top: 25px;
+    background: #d62828 !important;
+    color: white !important;
+    text-align: center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h2>👨‍💼 TASKMZ ADMIN</h2>
+
+<p>Painel de Administração</p>
+
+</header>
+
+<div class="container">
+
+<div class="stats">
+
+<div class="stat">
+
+<p>👤 Utilizadores</p>
+
+<h2><%= totalUsers %></h2>
+
+</div>
+
+
+<div class="stat">
+
+<p>📋 Tarefas</p>
+
+<h2><%= totalTasks %></h2>
+
+</div>
+
+</div>
+
+
+<div class="menu">
+<a href="/admin/users">👥 Ver Utilizadores</a>
+
+<a href="/admin/create-task">
+➕ Criar nova tarefa
+</a>
+
+<a href="/admin/tasks">
+📋 Gerir Tarefas
+</a>
+
+<a href="/admin/proofs">
+📸 Aprovar provas
+</a>
+<a href="/admin/withdrawals">
+💸 Pedidos de levantamento
+</a>
+<a href="#">
+👤 Utilizadores
+</a>
+
+<a href="/admin/logout" class="logout">
+🚪 Sair do Admin
+</a>
+
+</div>
+
+</div>
+
+
+<a href="/admin/messages" style="
+    display:block;
+    background:#1877f2;
+    color:white;
+    text-decoration:none;
+    padding:15px;
+    margin-top:15px;
+    border-radius:10px;
+    text-align:center;
+    font-weight:bold;
+">
+    📢 Enviar mensagem
+</a>
+
+</body>
+</html>

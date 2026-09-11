@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Criar Conta - TASKMZ</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #061b35, #0b3157);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.page {
+    width: 100%;
+    max-width: 1100px;
+    min-height: 650px;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+}
+
+
+/* LADO DE APRESENTAÇÃO */
+
+.welcome {
+    background: linear-gradient(135deg, #087f23, #16a34a);
+    color: white;
+    padding: 55px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo {
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.logo span {
+    color: #ffd43b;
+}
+
+.welcome h1 {
+    font-size: 38px;
+    line-height: 1.2;
+    margin: 0 0 18px;
+}
+
+.welcome p {
+    font-size: 17px;
+    line-height: 1.7;
+    opacity: 0.95;
+}
+
+.benefits {
+    margin-top: 25px;
+}
+
+.benefit {
+    margin: 16px 0;
+    font-size: 15px;
+}
+
+
+/* ÁREA DO FORMULÁRIO */
+
+.register-area {
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.register-area h2 {
+    margin: 0;
+    font-size: 30px;
+    color: #172033;
+}
+
+.subtitle {
+    color: #738096;
+    margin: 10px 0 20px;
+    font-size: 15px;
+}
+
+
+/* ERRO */
+
+.error {
+    background: #fff0f0;
+    color: #c62828;
+    padding: 14px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+
+/* FORMULÁRIO */
+
+label {
+    display: block;
+    color: #344054;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 7px;
+}
+
+.input-box {
+    position: relative;
+}
+
+.input-box span {
+    position: absolute;
+    left: 15px;
+    top: 14px;
+    font-size: 18px;
+}
+
+input {
+    width: 100%;
+    padding: 14px 15px 14px 48px;
+    border: 1px solid #dfe5ec;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #087f23;
+    box-shadow: 0 0 0 3px rgba(8,127,35,0.10);
+}
+
+
+/* BOTÃO */
+
+button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 12px;
+    background: #087f23;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #066b1d;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+
+/* LOGIN */
+
+.login {
+    text-align: center;
+    margin-top: 22px;
+    color: #667085;
+    font-size: 14px;
+}
+
+.login a {
+    color: #087f23;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 22px;
+    color: #98a2b3;
+    font-size: 12px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    body {
+        padding: 0;
+        display: block;
+        background: #f4f7fb;
+    }
+
+    .page {
+        min-height: 100vh;
+        border-radius: 0;
+        display: block;
+        box-shadow: none;
+    }
+
+    .welcome {
+        padding: 38px 25px;
+    }
+
+    .logo {
+        font-size: 28px;
+        margin-bottom: 18px;
+    }
+
+    .welcome h1 {
+        font-size: 28px;
+    }
+
+    .welcome p {
+        font-size: 15px;
+    }
+
+    .benefits {
+        display: none;
+    }
+
+    .register-area {
+        padding: 32px 25px 45px;
+    }
+
+    .register-area h2 {
+        font-size: 27px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+
+    <!-- APRESENTAÇÃO -->
+
+    <section class="welcome">
+
+        <div class="logo">
+            🇲🇿 TASK<span>MZ</span>
+        </div>
+
+        <h1>
+            Comece a ganhar com as suas tarefas.
+        </h1>
+
+        <p>
+            Crie gratuitamente a sua conta e tenha acesso às oportunidades
+            disponíveis na plataforma TASKMZ.
+        </p>
+
+        <div class="benefits">
+
+            <div class="benefit">
+                📋 Encontre tarefas disponíveis
+            </div>
+
+            <div class="benefit">
+                ✅ Complete tarefas e envie provas
+            </div>
+
+            <div class="benefit">
+                💰 Ganhe saldo pelas tarefas aprovadas
+            </div>
+
+            <div class="benefit">
+                💸 Faça pedidos de levantamento
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FORMULÁRIO -->
+
+    <section class="register-area">
+
+        <h2>Criar uma conta 🚀</h2>
+
+        <div class="subtitle">
+            Preencha os dados abaixo para começar.
+        </div>
+
+
+        <% if (error) { %>
+
+            <div class="error">
+                ⚠️ <%= error %>
+            </div>
+
+        <% } %>
+
+
+        <form action="/register" method="POST">
+
+
+            <label>📱 Número de telefone</label>
+
+            <div class="input-box">
+
+                <span>📱</span>
+
+                <input
+                    type="tel"
+                    name="telefone"
+                    placeholder="Ex: 84xxxxxxx"
+                    required
+                >
+
+            </div>
+
+
+            <label>🔐 Palavra-passe</label>
+
+            <div class="input-box">
+
+                <span>🔒</span>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Crie uma palavra-passe"
+                    required
+                >
+
+            </div>
+
+
+            <label>🔐 Confirmar palavra-passe</label>
+
+            <div class="input-box">
+
+                <span>🔒</span>
+
+                <input
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="Repita a palavra-passe"
+                    required
+                >
+
+            </div>
+
+
+            <button type="submit">
+                🚀 CRIAR A MINHA CONTA
+            </button>
+
+        </form>
+
+
+        <div class="login">
+
+            Já tem uma conta?
+
+            <a href="/login">
+                Entrar
+            </a>
+
+        </div>
+
+
+        <div class="footer">
+            🇲🇿 TASKMZ • Plataforma de Microtarefas
+        </div>
+
+    </section>
+
+</div>
+
+</body>
+</html>

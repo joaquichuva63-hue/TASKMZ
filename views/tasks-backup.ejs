@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tarefas Disponíveis - TASKMZ</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7f5;
+            color: #1f2937;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #047857, #16a34a);
+            color: white;
+            padding: 20px 18px 70px;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .top {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .back {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.18);
+            border-radius: 14px;
+            color: white;
+            text-decoration: none;
+            font-size: 25px;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            margin-top: 5px;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            padding: 0 16px 25px;
+        }
+
+        .info {
+            background: white;
+            padding: 17px;
+            border-radius: 20px;
+            margin-top: -42px;
+            margin-bottom: 22px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            color: #4b5563;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .info strong {
+            color: #087f23;
+        }
+
+        .task {
+            background: white;
+            border-radius: 20px;
+            padding: 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            border: 1px solid #f0f0f0;
+        }
+
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .task-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1f2937;
+            line-height: 1.35;
+        }
+
+        .value {
+            background: #dcfce7;
+            color: #087f23;
+            padding: 8px 11px;
+            border-radius: 14px;
+            font-weight: bold;
+            white-space: nowrap;
+            font-size: 13px;
+        }
+
+        .description {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 16px 0;
+            white-space: pre-line;
+            background: #fafafa;
+            padding: 13px;
+            border-radius: 13px;
+        }
+
+        .task-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+
+        .available {
+            color: #087f23;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .accept {
+            background: linear-gradient(135deg, #087f23, #16a34a);
+            color: white;
+            border: none;
+            padding: 12px 17px;
+            border-radius: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 13px;
+            box-shadow: 0 5px 12px rgba(8,127,35,0.18);
+        }
+
+        .accept:active {
+            transform: scale(0.96);
+        }
+
+        .empty {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+            color: #6b7280;
+        }
+
+        .empty-icon {
+            font-size: 55px;
+            margin-bottom: 12px;
+        }
+
+        .empty strong {
+            color: #1f2937;
+            font-size: 17px;
+        }
+
+        .empty p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px 15px;
+            color: #9ca3af;
+            font-size: 12px;
+        }
+
+        @media (max-width: 380px) {
+            .task-header {
+                flex-direction: column;
+            }
+
+            .value {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+
+    <div class="top">
+
+        <a href="/dashboard" class="back">←</a>
+
+        <div>
+            <div class="title">📋 Tarefas Disponíveis</div>
+
+            <div class="subtitle">
+                Complete tarefas e aumente o seu saldo
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="container">
+
+    <div class="info">
+        💡 <strong>Como funciona?</strong><br>
+        Escolha uma tarefa, siga corretamente as instruções e envie a prova depois de concluir.
+    </div>
+
+
+    <% if (!tasks || tasks.length === 0) { %>
+
+        <div class="empty">
+
+            <div class="empty-icon">📭</div>
+
+            <strong>Nenhuma tarefa disponível</strong>
+
+            <p>
+                Neste momento não existem tarefas disponíveis.
+                Volte mais tarde para verificar novas oportunidades.
+            </p>
+
+        </div>
+
+    <% } else { %>
+
+        <% tasks.forEach(task => { %>
+
+            <div class="task">
+
+                <div class="task-header">
+
+                    <div class="task-title">
+                        <%= task.titulo %>
+                    </div>
+
+                    <div class="value">
+                        💰 <%= Number(task.valor || 0).toFixed(2) %> MT
+                    </div>
+
+                </div>
+
+
+                <div class="description">
+                    <%= task.descricao %>
+                </div>
+
+
+                <div class="task-footer">
+
+                    <div class="available">
+                        🟢 Disponível
+                    </div>
+
+
+                    <form action="/tasks/<%= task.id %>/accept" method="POST">
+
+                        <button type="submit" class="accept">
+                            Aceitar tarefa →
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        <% }) %>
+
+    <% } %>
+
+</div>
+
+
+<div class="footer">
+    🇲🇿 <strong>TASKMZ</strong><br>
+    Faça tarefas • Ganhe dinheiro
+</div>
+
+</body>
+</html>
