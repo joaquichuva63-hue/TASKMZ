@@ -1,1 +1,10 @@
+.env
+.en
+env
+enver.js
 node_modules/
+uploads/*
+database.json
+database-backup*.json
+server-backup*.js
+server-before*.js
